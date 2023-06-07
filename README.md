@@ -1,17 +1,21 @@
-Test Task "Quiz"
-Technical Requirements:
-The task is to implement an application that contains questions from different fields of activity.
+# Тестовое задание “Quiz”
 
-Technologies used:
-HTML
-CSS
-JavaScript
-Description:
-The application should contain a block that includes: a question, answer options, a counter showing the number of questions, a button to proceed to the next question. If a question has multiple answer options, the user should be informed about it.
-When selecting an answer, the field should change color, indicating the correctness of the given value (green - correct answer, red - incorrect answer).
-Proceeding to the next question should only be possible after selecting an answer option.
-After answering all the questions, the user should be informed about the number of correct answers. Additionally, a button should appear to allow the user to start the quiz again.
-Additional Project Requirements:
-Implementation of adaptive layout.
-The project should be implemented without using any third-party libraries.
-It is necessary to apply best practices for writing clean and readable code.
+# Техническое задание: 
+Необходимо реализовать приложение, содержащее вопросы из разных сфер деятельности.
+
+## Используемые технологии: 
+- HTML
+- CSS
+- Javascript
+
+## Описание: 
+- Приложение должно содержать блок, внутри которого будет располагаться: вопрос, варианты ответов, счетчик, показывающий количество вопросов, кнопка перехода к следующему вопросу, в случае, если вопрос, содержит несколько вариантов ответа, пользователь должен быть об этом проинформирован.
+- При выборе ответа, поле должно менять цвет, варьирующийся от корректности заданного значения (зеленый - ответ правильный, красный - ответ неправильный). 
+- Переход к следующему вопросу должен осуществляться только после выбора варианта ответа.
+- После окончания вопросов, пользователя необходимо проинформировать о количестве правильных ответов, так же должна появиться кнопка, позволяющая начать тест заново.
+
+
+## Также проект предполагает: 
+- Реализация адаптивной верстки.
+- Реализация осуществляется без использования сторонних библиотек.
+- Необходимо применить все лучшие практики написания чистого, читаемого кода.
