@@ -1,8 +1,9 @@
 body {
+  background-color: #0f4c81;
   font-family: Arial, sans-serif;
-  background-color: #F5F5F5;
   margin: 0;
   padding: 20px;
+  color: #FFFFFF;
 }
 
 .container {
@@ -18,17 +19,26 @@ h1 {
   font-size: 24px;
   text-align: center;
   margin-bottom: 20px;
+  color: #333333;
+}
+
+.question-counter {
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 10px;
+  color: #333333;
 }
 
 .question {
   font-size: 20px;
   margin-bottom: 10px;
+  color: #333333;
 }
 
 .options {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-between;
   margin-bottom: 20px;
 }
 
@@ -37,10 +47,10 @@ h1 {
   justify-content: center;
   align-items: center;
   padding: 10px;
-  width: 45%; 
-  margin: 5px; 
+  width: 45%;
+  margin-bottom: 10px;
   border-radius: 5px;
-  background-color: #1F1F1F;
+  background-color: #0f4c81;
   color: #FFFFFF;
   font-size: 14px;
   text-align: center;
@@ -48,43 +58,54 @@ h1 {
 }
 
 .option:hover {
-  background-color: #383838;
+  background-color: #1a689e;
 }
 
 .option.correct {
-  background-color: #007E00;
+  background-color: #008000;
 }
 
 .option.incorrect {
-  background-color: #D80000;
+  background-color: #b30000;
 }
 
-.result {
-  font-size: 18px;
-  text-align: center;
-  margin-bottom: 20px;
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
 }
 
-#restartButton,
-#nextButton {
-  display: none; /* Изначально скрываем кнопки */
-  width: 100%;
-  padding: 20px;
-  margin-bottom: 10px;
-  border-radius: 5px;
-  background-color: #1F1F1F;
+button {
+  padding: 10px 20px;
+  background-color: #0f4c81;
   color: #FFFFFF;
-  font-size: 18px;
-  text-align: center;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-#restartButton:hover,
-#nextButton:hover {
-  background-color: #383838;
+button:hover {
+  background-color: #1a689e;
 }
 
-/* Адаптивная верстка для мобильных устройств */
+button[disabled] {
+  background-color: #95a5a6;
+  cursor: not-allowed;
+}
+
+.hide {
+  display: none;
+}
+
+code {
+  background-color: #0f4c81;
+  color: #FFFFFF;
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-size: 14px;
+}
+
 @media only screen and (max-width: 600px) {
   .container {
     padding: 10px;
@@ -92,6 +113,11 @@ h1 {
 
   h1 {
     font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .question-counter {
+    font-size: 16px;
     margin-bottom: 10px;
   }
 

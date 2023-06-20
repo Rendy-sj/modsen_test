@@ -17,7 +17,7 @@ const questions = [
   },
   {
     question: "Who wrote 'Hamlet'?",
-    options: ["Dante Alighieri", "Howard Phillips Lovecraft", "William Shakespeare", "John Ronald Tolkien["],
+    options: ["Dante Alighieri", "Howard Phillips Lovecraft", "William Shakespeare", "John Ronald Tolkien"],
     correctAnswer: 2
   },
   {
@@ -65,6 +65,10 @@ const restartButton = document.getElementById("restartButton");
 function showQuestion() {
   const currentQuestion = questions[currentQuestionIndex];
   questionElement.textContent = currentQuestion.question;
+
+  // Displaying the question counter
+  const questionCounter = document.getElementById("questionCounter");
+  questionCounter.textContent = `Question ${currentQuestionIndex + 1} of ${questions.length}`;
 
   optionsElement.innerHTML = "";
   for (let i = 0; i < currentQuestion.options.length; i++) {
