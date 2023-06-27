@@ -1,4 +1,3 @@
-// Questions and Answers
 const questions = [
   {
     question: "What year was the UN founded?",
@@ -55,100 +54,81 @@ const questions = [
 let currentQuestionIndex = 0;
 let score = 0;
 
-const questionElement = document.getElementById("question");
-const optionsElement = document.getElementById("options");
-const counterElement = document.getElementById("counter");
-const nextButton = document.getElementById("nextButton");
-const restartButton = document.getElementById("restartButton");
-
-// Function to display the current question
 function showQuestion() {
   const currentQuestion = questions[currentQuestionIndex];
-  questionElement.textContent = currentQuestion.question;
+  document.getElementById("question").textContent = currentQuestion.question;
 
-  // Displaying the question counter
-  const questionCounter = document.getElementById("questionCounter");
-  questionCounter.textContent = `Question ${currentQuestionIndex + 1} of ${questions.length}`;
+  const questionCounterElement = document.getElementById("question-counter");
+  questionCounterElement.textContent = `Question ${currentQuestionIndex + 1} of ${questions.length}`;
 
+  const optionsElement = document.getElementById("options");
   optionsElement.innerHTML = "";
   for (let i = 0; i < currentQuestion.options.length; i++) {
     const option = document.createElement("div");
     option.classList.add("option");
     option.textContent = currentQuestion.options[i];
-    option.addEventListener("click", handleAnswer); // Click event handler for answer buttons
+    option.addEventListener("click", handleAnswer);
     optionsElement.appendChild(option);
   }
 
-  // Enabling the "Next" button
-  nextButton.style.display = "block";
+  document.getElementById("next-button").style.display = "block";
 }
 
-// Function to handle answer selection
 function handleAnswer(event) {
   const selectedOption = event.target;
-  const selectedAnswer = Array.from(optionsElement.children).indexOf(selectedOption);
+  const selectedAnswer = Array.from(document.getElementById("options").children).indexOf(selectedOption);
   const currentQuestion = questions[currentQuestionIndex];
 
   if (selectedAnswer === currentQuestion.correctAnswer) {
     score++;
-    selectedOption.classList.add("correct"); // Adding "correct" class for correct answer
+    selectedOption.classList.add("correct");
   } else {
-    selectedOption.classList.add("incorrect"); // Adding "incorrect" class for wrong answer
+    selectedOption.classList.add("incorrect");
   }
 
-  // Disabling the ability to select an answer after selection
   const options = document.querySelectorAll(".option");
   options.forEach((option) => {
     option.removeEventListener("click", handleAnswer);
   });
 
-  // Enabling the "Next" button
-  nextButton.disabled = false;
+  document.getElementById("next-button").disabled = false;
 }
 
-// Function to move to the next question
 function goToNextQuestion() {
-  // Checking if there are any more questions
   if (currentQuestionIndex < questions.length - 1) {
     currentQuestionIndex++;
     showQuestion();
 
-    // Reset answer button colors and styles
     const options = document.querySelectorAll(".option");
     options.forEach((option) => {
       option.classList.remove("correct", "incorrect");
     });
 
-    // Disabling the "Next" button
-    nextButton.disabled = true;
+    document.getElementById("next-button").disabled = true;
   } else {
-    // All questions answered
     showResult();
   }
 }
 
-// Function to show results
 function showResult() {
-  questionElement.textContent = `You answered ${score} out of ${questions.length} questions correctly.`;
+  document.getElementById("question").textContent = `You answered ${score} out of ${questions.length} questions correctly.`;
 
-  // Hiding answer choice buttons and showing a "Restart" button
+  const optionsElement = document.getElementById("options");
   optionsElement.style.display = "none";
-  nextButton.style.display = "none";
-  restartButton.style.display = "inline-block";
+  document.getElementById("next-button").style.display = "none";
+  document.getElementById("restart-button").style.display = "inline-block";
 }
 
-// Function to restart the test
 function restartQuiz() {
   currentQuestionIndex = 0;
   score = 0;
   showQuestion();
 
-  // Showing Choice Buttons and Hiding the Restart Button
+  const optionsElement = document.getElementById("options");
   optionsElement.style.display = "flex";
-  nextButton.style.display = "block";
-  restartButton.style.display = "none";
+  document.getElementById("next-button").style.display = "block";
+  document.getElementById("restart-button").style.display = "none";
 
-  // Reset answer button colors and styles
   const options = document.querySelectorAll(".option");
   options.forEach(option => {
     option.classList.remove("correct", "incorrect");
@@ -156,11 +136,8 @@ function restartQuiz() {
   });
 }
 
-// Test start
 showQuestion();
 
-// Assigning a click event handler to the "Next" button
-nextButton.addEventListener("click", goToNextQuestion);
+document.getElementById("next-button").addEventListener("click", goToNextQuestion);
 
-// Assigning a click event handler to the "Restart" button
-restartButton.addEventListener("click", restartQuiz);
+document.getElementById("restart-button").addEventListener("click", restartQuiz);
