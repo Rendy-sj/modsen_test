@@ -7,17 +7,25 @@
   <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
-  <div id="quiz" class="container">
-    <h1>Quiz</h1>
-    <p id="question-counter" class="question-counter"></p>
-    <div id="question" class="question"></div>
-    <div id="options" class="options"></div>
-    <p id="counter"></p>
-    <div class="button-container">
-      <button id="next-button" disabled>Next</button>
-      <button id="restart-button" class="hide">Restart</button>
-    </div>
-  </div>
+
+  <main>
+    <article id="quiz" class="container">
+      <header>
+        <h2 id="question" class="question"></h2>
+        <p id="question-counter" class="question-counter"></p>
+      </header>
+
+      <section id="options" class="options"></section>
+
+      <footer>
+        <p id="counter"></p>
+        <div class="button-container">
+          <button id="next-button" disabled>Next</button>
+          <button id="restart-button" class="hide">Restart</button>
+        </div>
+      </footer>
+    </article>
+  </main>
 
   <script src="../js/script.js"></script>
 </body>
