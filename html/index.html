@@ -8,24 +8,15 @@
 </head>
 <body>
 
-  <main>
-    <article id="quiz" class="container">
-      <header>
-        <h2 id="question" class="question"></h2>
-        <p id="question-counter" class="question-counter"></p>
-      </header>
-
-      <section id="options" class="options"></section>
-
-      <footer>
-        <p id="counter"></p>
-        <div class="button-container">
-          <button id="next-button" disabled>Next</button>
-          <button id="restart-button" class="hide">Restart</button>
-        </div>
-      </footer>
-    </article>
-  </main>
+  <div class="container">
+    <h2 class="question"></h2>
+    <div class="question-counter"></div>
+    <div class="quiz-options"></div>
+    <div class="button-container">
+      <button class="quiz-button hide" id="next-button">Next</button>
+      <button class="quiz-button hide" id="restart-button">Restart</button>
+    </div>
+  </div>
 
   <script src="../js/script.js"></script>
 </body>

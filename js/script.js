@@ -56,12 +56,12 @@ let score = 0;
 
 function showQuestion() {
   const currentQuestion = questions[currentQuestionIndex];
-  document.getElementById("question").textContent = currentQuestion.question;
+  document.querySelector(".question").textContent = currentQuestion.question;
 
-  const questionCounterElement = document.getElementById("question-counter");
+  const questionCounterElement = document.querySelector(".question-counter");
   questionCounterElement.textContent = `Question ${currentQuestionIndex + 1} of ${questions.length}`;
 
-  const optionsElement = document.getElementById("options");
+  const optionsElement = document.querySelector(".quiz-options");
   optionsElement.innerHTML = "";
   for (let i = 0; i < currentQuestion.options.length; i++) {
     const option = document.createElement("div");
@@ -71,12 +71,12 @@ function showQuestion() {
     optionsElement.appendChild(option);
   }
 
-  document.getElementById("next-button").style.display = "block";
+  document.getElementById("next-button").classList.remove("hide");
 }
 
 function handleAnswer(event) {
   const selectedOption = event.target;
-  const selectedAnswer = Array.from(document.getElementById("options").children).indexOf(selectedOption);
+  const selectedAnswer = Array.from(document.querySelector(".quiz-options").children).indexOf(selectedOption);
   const currentQuestion = questions[currentQuestionIndex];
 
   if (selectedAnswer === currentQuestion.correctAnswer) {
@@ -111,9 +111,9 @@ function goToNextQuestion() {
 }
 
 function showResult() {
-  document.getElementById("question").textContent = `You answered ${score} out of ${questions.length} questions correctly.`;
+  document.querySelector(".question").textContent = `You answered ${score} out of ${questions.length} questions correctly.`;
 
-  const optionsElement = document.getElementById("options");
+  const optionsElement = document.querySelector(".quiz-options");
   optionsElement.style.display = "none";
   document.getElementById("next-button").style.display = "none";
   document.getElementById("restart-button").style.display = "inline-block";
@@ -124,7 +124,7 @@ function restartQuiz() {
   score = 0;
   showQuestion();
 
-  const optionsElement = document.getElementById("options");
+  const optionsElement = document.querySelector(".quiz-options");
   optionsElement.style.display = "flex";
   document.getElementById("next-button").style.display = "block";
   document.getElementById("restart-button").style.display = "none";
