@@ -1,0 +1,32 @@
+# Определение базовой директории развертывания
+base = ""
+
+# Определение команды сборки (если требуется)
+# build = "npm run build" # Пример для использования NPM
+
+# Определение директории сборки (если требуется)
+# publish = "dist" # Пример для директории "dist"
+
+[[redirects]]
+  # Правило перенаправления для SPA (одностраничных приложений)
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[[headers]]
+  # Правило заголовков для стилей CSS
+  for = "/css/*"
+  [headers.values]
+    Content-Type = "text/css"
+
+[[headers]]
+  # Правило заголовков для скриптов JavaScript
+  for = "/js/*"
+  [headers.values]
+    Content-Type = "text/javascript"
+
+[[headers]]
+  # Правило заголовков для всех HTML файлов
+  for = "/*.html"
+  [headers.values]
+    Content-Type = "text/html"
